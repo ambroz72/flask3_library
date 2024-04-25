@@ -1,42 +1,43 @@
 {% extends 'base.html' %}
+
 {% block content %}
-
-    <body>
-        <nav class="navbar navbar-expand-sm bg-dark">
-            <ul class="nav nav-pills"> <li class="nav-item "> <a class="nav-link" href="#"><b>ShopClub</b></a> </li>
-              <li class="nav-item "> <a class="nav-link" href="#"><b>Home</b></a> </li>
-              <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><b>Category</b> </a>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark">
+        <a class="navbar-brand" href="#"><strong>ShopClub</strong></a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><b>Category</b></a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#"><b>Novel</b></a>
-                  <a class="dropdown-item" href="#"><b>Sifi</b></a>
-                  <a class="dropdown-item" href="#"><b>History</b></a>
-                  <a class="dropdown-item disabled" href="#">List</a>
+                    <a class="dropdown-item" href="#"><b>Novel</b></a>
+                    <a class="dropdown-item" href="#"><b>Sci-fi</b></a>
+                    <a class="dropdown-item" href="#"><b>History</b></a>
+                    <a class="dropdown-item disabled" href="#">List</a>
                 </div>
-              </li>
-              <li class="nav-item"> <a class="nav-link" href="sign up.html"><b>Sign up</b></a></li>
-              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal"><b>Login</b></button>
-              <li class="nav-item"> <a class="nav-link" href="cart.html"><b>Cart</b></a></li>
-          </ul>
-        </nav>
+            </li>
+        </ul>
+        <a class="nav-link" href="#"><strong>Login</strong></a>
+        <a class="nav-link" href="#"><strong>Sign up</strong></a>
+        <a class="nav-link" href="ca"><strong>Cart</strong></a>
+    </nav>
 
-        <div class="i">
-            <input class="search" type="text" placeholder="Search" aria-label="Search">
-            <button type="button" class="btn btn-success">Go</button><br><br>
-        </div>
-  
+    <div class="container mt-4">
+        <h1 class="text-center">Available Books</h1>
 
-    <h1>Available Books</h1><br><br>
-    <div class="container container-fluid">
-        <div class="row">       
-            {% for i in books %}
-            <div class="col-4">
+        <div class="row justify-content-center">
+            {% for book in books %}
+            <div class="col-md-3 mb-4">
                 <div class="card">
-                    <img src="{{i.cover}}" >
-
+                    <img src="{{ book.cover }}" class="card-img-top" alt="{{ book.name }}">
                     <div class="card-body">
-                        <h5 class="card=title">{{i.name}} </h5>
-                        <p> {{i.name}} by {{i.author}}</p> 
-                         <button type="button" class="btn btn-primary">Add to cart</button>
+                        <h5 class="card-title">{{ book.name }}</h5>
+                        <p class="card-text">{{ book.author }}</p>
+                        <button type="button" class="btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -44,10 +45,10 @@
         </div>
     </div>
 
-      <div class="footer"><h4> © 2024 SHOPCLUB. ALL RIGHTS RESERVED</h4> 
-      </div>
-      {% endblock %}
-        </body>
-    </html>
-
- 
+    <footer class="footer mt-4">
+        <div class="container text-center">
+            <h4>© 2024 SHOPCLUB. ALL RIGHTS RESERVED</h4>
+        </div>
+    </footer>
+</body>
+{% endblock %}
