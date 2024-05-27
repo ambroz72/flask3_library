@@ -3,6 +3,8 @@ ShopClub: A Flask-based E-commerce Website for Book Enthusiasts
 ShopClub is a dynamic and user-friendly e-commerce platform built with Flask, a lightweight web framework for Python. 
 It caters to bookworms by offering a streamlined interface to browse, search, and add books to a virtual cart.
 
+![PROJECT SCREENSHORT](Project screenshot/flask.png)
+
 Key Features:
 
 Intuitive Navigation: The navigation bar facilitates seamless exploration with a search bar, category dropdown
